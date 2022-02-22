@@ -42,6 +42,10 @@ class RoundRobin:
             
             ganttStart = startTime # note the start time before execution begins
 
+            # # Check if there is an empty state
+            # while(self.processes[i]['Arrival Time'] > self.time):
+            #     self.time += 1 # keep CPU empty
+
             # performing the execution of process
             for execute in range(0, QUANTUM): # executing the process for given Time (QUANTUM)
                 remainingBurstTime -= 1

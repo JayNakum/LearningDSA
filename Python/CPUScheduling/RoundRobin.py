@@ -15,7 +15,7 @@ def getProcesses() -> list:
         
         processes.append(process)
     # sorting the processes by its arrival time
-    processes.sort(key=lambda process: process['Arrival Time'])
+    # processes.sort(key=lambda process: process['Arrival Time'])
 
     # print(processes)
     return processes
@@ -37,9 +37,11 @@ class RoundRobin:
             process['Response Time'] = startTime - process['Arrival Time']
 
         # simulate the execution
-        while(remainingBurstTime > 0):
+        while(self.time < (startTime + quantum)):
             remainingBurstTime -= 1
             self.time += 1
+            if(remainingBurstTime == 0):
+                break
         
         endTime = self.time
         
@@ -47,3 +49,17 @@ class RoundRobin:
         
         # print(gantt)
         return gantt
+    
+    def simulate(self) -> list:
+        ganttChart = []
+        
+        readyQueue = list(self.processes)
+        readyQueue.sort(key=lambda process: process['Arrival Time'])
+
+        for process in readyQueue:
+            self._executeProcess(process)
+        
+
+# Driver Code
+if __name__ == "__main__":
+    quantum = 3

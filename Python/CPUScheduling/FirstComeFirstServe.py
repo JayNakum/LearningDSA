@@ -16,7 +16,7 @@ def getProcesses() -> list:
         processes.append(process)
 
     # sorting the processes by its arrival time
-    processes.sort(key=lambda process: process['Arrival Time'])
+    # processes.sort(key=lambda process: process['Arrival Time'])
 
     # print(processes)
     return processes
@@ -51,11 +51,14 @@ class FCFS:
         # print(gantt)
         return gantt
 
-    def _ganttChart(self) -> list:
+    def simulate(self) -> list:
         ganttChart = []
+        
+        readyQueue = self.processes
+        readyQueue.sort(key=lambda process: process['Arrival Time'])
 
         # execute each process and generate ganttChart
-        for process in self.processes:
+        for process in readyQueue:
             
             # Check if there is an empty state
             while(process['Arrival Time'] > self.time):
@@ -125,11 +128,11 @@ class FCFS:
         print()
         print('Average Waiting Time = ' + str(averageWaitingTime))
 
-    def simulate(self) -> None:
-        ganttChart = self._ganttChart()
+    def execute(self) -> None:
+        ganttChart = self.simulate()
         averageWaitingTime = self._calculateTimes()
         self._printFormattedOutput(ganttChart = ganttChart, averageWaitingTime = averageWaitingTime)
 
 # Driver Code
 if __name__ == "__main__":
-    FCFS(processes = getProcesses()).simulate()
+    FCFS(processes = getProcesses()).execute()
