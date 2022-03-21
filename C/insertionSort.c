@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void printArray(int array[], int n) {
-    for(int i = 0; i<n; i++) {
+void printArray(int array[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
         printf("%d, ", array[i]);
     }
 }
@@ -25,8 +27,8 @@ void insertion(int array[], int n)
     printArray(array, n);
 }
 
-
-int main() {
+int main()
+{
     int n = 5;
     int array[] = {5, 4, 3, 2, 1};
     insertion(array, n);

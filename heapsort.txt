@@ -1,0 +1,66 @@
+heap sort
+-Heap sort is a binary tree or 3 array tree...n-array tree
+-when you want to construct heap tree you should atleast 
+have alteat binary tree or strict or full binary tree
+-heap 2 ty  pes:
+	-->min
+	-->max
+max heap:-complete or almost complete binary tree where root 
+	is max at everylevel
+
+max-heapify(a,i)
+{
+	l=21;
+	r-2i+1;
+	IF(l<=a.heap-size &&a[l]>a[i])
+	large = l
+	else
+	large = i
+	if(r<=a.heap-size && a[r]>a[large]
+	if(large not equals to i)
+	exchange a[i] with a[large]
+	max_heapify
+
+	max_heap
+//construct a heap 
+1)find all the leaf index of which by defualt heap
+2)find large index of non heap to 1
+ 
+@psuedocode
+build max heap(a)
+{	
+a.heap_size=a.length
+for(i-[a.heap_size]/2to 1)//leap are bydefault heap
+max_heapify(a,i)
+
+//delete a max heap
+heap_extraction//take it out and rearrange
+{
+if a.heap_size<1
+error"heap is underfloe"
+max = a[i]
+a[i]=a.[a.heap-size]
+a.heap_size=a.heap_size-1
+max_heapify(a,i)
+return max
+
+@heap sort
+heapsort(a)
+{
+build_maxheap(a)
+for(i=a.lenght down to 2)
+exchange a[i] with a[i]
+a.heap_Size =a.heap_size -1
+max_heapify(a,i)
+
+
+
+
+
+
+
+
+
+
+
+	

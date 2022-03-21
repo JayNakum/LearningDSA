@@ -113,6 +113,8 @@ class FCFS:
         print('WT = Waiting Time')
         print('RT = Response Time')
         
+        print(self.processes)
+
         print()
         print('PID\tAT\tBT\tCT\tTAT\tWT\tRT')
         for process in self.processes:
@@ -130,6 +132,7 @@ class FCFS:
 
     def execute(self) -> None:
         ganttChart = self.simulate()
+        print(ganttChart)
         averageWaitingTime = self._calculateTimes()
         self._printFormattedOutput(ganttChart = ganttChart, averageWaitingTime = averageWaitingTime)
 
