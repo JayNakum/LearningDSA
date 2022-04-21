@@ -18,17 +18,32 @@ prims(E, cost, n, t)
 
         near[k] = near[l] = 0
 
-        for i <- 2 to n -1
-            let j be an index such that near[j] != 0 and cost[j, near[j]] is minimum
+    for i <- 2 to n -1
+        let j be an index such that near[j] != 0 and cost[j, near[j]] is minimum
 
-            t[i, 1] <- j
-            t[i, 2] <- near[j]
+        t[i, 1] <- j
+        t[i, 2] <- near[j]
 
-            update the minCost <- minCost + cost[j, near[j]]
-            near[j] <- 0
+        update the minCost <- minCost + cost[j, near[j]]
+        near[j] <- 0
 
-            for k <- 1 to n
-                if near[k] != 0 and cost[k, near[k]] > cost[k, j]
-                    near[k] <- j
+        for k <- 1 to n
+            if near[k] != 0 and cost[k, near[k]] > cost[k, j]
+                near[k] <- j
 
+}
+
+prims (G, cost, r)
+{
+    for each vertex u belongs to G.vertex
+        u.key = INF
+        u.PI = NIL
+    r.key = 0
+    q = G.vertices
+    while q != empty
+        u = extract_min(q)
+        for each vertex v adjacent to u
+            if v belongs to q and cost[u, v] < v.key
+            v.parent = u
+            v.key = w(u, v)
 }

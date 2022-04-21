@@ -1,0 +1,12 @@
+dijkstra(G, W, S)
+{
+    initialize_single_source(G, S)
+    S = NIL
+    Q = G.V (build min heap)
+
+    while Q != empty
+        U = extract_min(Q)
+        S = S U {U}
+        for each vertex v belongs to G.adj[u]
+            relax(U, R, W)
+}
