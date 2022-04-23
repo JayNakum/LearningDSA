@@ -20,7 +20,7 @@ class RoundRobin:
         self.processCount = len(self.processes)
 
     # This method does the execution of the the process and generates a Gantt Chart
-    def ganttChart(self) -> list: # and returns a ganttChart
+    def ganttChart(self) -> None: # and returns a ganttChart
         isDone = False
         ganttChart = [] # the main list which will contain the ganttChart 
         time = 0 # initial startTime
@@ -62,8 +62,8 @@ class RoundRobin:
             self.processes[i]['Burst Time'] = remainingBurstTime
 
             i += 1 # next process
-        # print(ganttChart)
-        return ganttChart # returning the final ganttChart list
+        print(ganttChart)
+        # return ganttChart # returning the final ganttChart list
         
     # this method calculates the completionTime, turnAroundTime, waitingTime and responseTime of each process
     def calculateTimes(self, ganttChart) -> None:
@@ -132,9 +132,11 @@ def printOutput(list) -> None:
 
 # DRIVER CODE
 if __name__ == "__main__":
+    # Running Time Complexity = O(n * QUANTUM)
+
     QUANTUM = 3  # is the defined time for which any process will be executed
     processes = []  # is the process array in which all processes are stored
-    output = []
+
     getDetails() # reading the details from user
     
     print(processes)
@@ -144,14 +146,14 @@ if __name__ == "__main__":
     print('\nGantt Chart: ')
     ganttChart = algorithm.ganttChart() # generate ganttChart
     print(ganttChart)
-    # printGanttChart(ganttChart) # print ganttChart
+    printGanttChart(ganttChart) # print ganttChart
 
     # Calculate 'Completion Time', 'Turn Around Time' and 'Waiting Time' of each process
     algorithm.calculateTimes(ganttChart)
     
     print('\n\nOutput: ')
     print(algorithm.processes)
-    # printOutput(output) # print details of each process
+    printOutput(algorithm.processes) # print details of each process
 
     # Calculate the average of waiting times
     averageWaitingTime = algorithm.calculateAverageWaitingTime()
