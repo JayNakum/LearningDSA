@@ -6,7 +6,6 @@ int main()
     std::cout << "Prims" << std::endl;
 
     int v;
-
     std::cout << "Enter number of vertices: ";
     std::cin >> v;
 
