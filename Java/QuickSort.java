@@ -24,7 +24,7 @@ public class QuickSort {
         quicksort(arr , pvt+1, high);
         }
     }
-public static int partition(int[] nums, int low, int high){
+    public static int partition(int[] nums, int low, int high){
         int i = low;
         int j = high;
         int pivot = nums[low];

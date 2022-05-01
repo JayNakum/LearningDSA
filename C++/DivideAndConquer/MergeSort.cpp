@@ -1,5 +1,4 @@
 #include <iostream>
-#include <math.h>
 
 void printArray(double *arr, int n)
 {

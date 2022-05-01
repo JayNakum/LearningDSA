@@ -24,11 +24,11 @@ struct Array
 {
     int length;
     int heapSize;
-    int *arr;
+    double *arr;
     Tree tree;
 };
 
-void printArray(int *arr, int n)
+void printArray(double *arr, int n)
 {
     for (int i = 0; i < n; i++)
     {
@@ -55,7 +55,7 @@ void maxHeapify(Array &A, int i)
 
     if (largest != i)
     {
-        int temp = A.arr[largest];
+        double temp = A.arr[largest];
         A.arr[largest] = A.arr[i];
         A.arr[i] = temp;
 
@@ -76,7 +76,7 @@ int extractMax(Array &A)
 {
     if (A.heapSize >= 0)
     {
-        int max = A.arr[0];
+        double max = A.arr[0];
         A.heapSize -= 1;
         A.arr[0] = A.arr[A.heapSize];
         maxHeapify(A, 0);
@@ -95,7 +95,7 @@ void heapSort(Array &A)
     printArray(A.arr, A.length);
     for (int i = (A.length - 1); i >= 0; i--)
     {
-        int temp = A.arr[i];
+        double temp = A.arr[i];
         A.arr[i] = A.arr[0];
         A.arr[0] = temp;
         A.heapSize -= 1;
@@ -109,7 +109,7 @@ int main()
     Array A;
     A.length = 10;
     A.heapSize = 8;
-    A.arr = new int[A.length];
+    A.arr = new double[A.length];
 
     A.arr[0] = 4;
     A.arr[1] = 1;
