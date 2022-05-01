@@ -71,6 +71,21 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "valarray": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "any": "cpp",
+        "barrier": "cpp",
+        "bitset": "cpp",
+        "charconv": "cpp",
+        "complex": "cpp",
+        "coroutine": "cpp",
+        "csetjmp": "cpp",
+        "cuchar": "cpp",
+        "regex": "cpp",
+        "latch": "cpp",
+        "ranges": "cpp",
+        "scoped_allocator": "cpp",
+        "shared_mutex": "cpp",
+        "span": "cpp",
+        "syncstream": "cpp"
     }
 }
