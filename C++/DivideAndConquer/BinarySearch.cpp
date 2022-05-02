@@ -1,3 +1,9 @@
+/** Time Complexity
+ *  Worst Case: O(log n)
+ *  Average Case: O(log n)
+ *  Best Case: O(1)
+ */
+
 #include <iostream>
 
 int binarySearch(double *A, double search, int p, int r)

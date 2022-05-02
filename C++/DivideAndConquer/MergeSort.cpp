@@ -1,3 +1,9 @@
+/** Time Complexity
+ *  Worst Case: O(n log n)
+ *  Average Case: O(n log n)
+ *  Best Case: O(n log n)
+ */
+
 #include <iostream>
 
 void printArray(double *arr, int n)

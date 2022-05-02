@@ -1,3 +1,9 @@
+/** Time Complexity
+ *  Sorting: O(n log n)
+ *  Heapify: O(log n)
+ *  Build Heap: O(n)
+ */
+
 #include <iostream>
 #include "Heap.h"
 

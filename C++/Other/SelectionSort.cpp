@@ -1,3 +1,9 @@
+/** Time Complexity
+ *  Worst Case: O(n^2)
+ *  Average Case: O(n^2)
+ *  Best Case: O(n^2)
+ */
+
 #include <iostream>
 
 void printArray(double *arr, int n)
