@@ -1,6 +1,5 @@
 #pragma once
 
-#include <vector>
 #include <math.h>
 
 static int PARENT(int i)

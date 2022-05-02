@@ -91,10 +91,10 @@ public:
 
     void insert(std::vector<Alphabet> &alphabets, Alphabet alphabet)
     {
-        alphabets.insert(alphabets.end(), alphabet);
+        alphabets.insert(alphabets.begin(), alphabet);
         size++;
-        // minHeapify(alphabets, alphabets.size() - 1);
-        buildMinHeap(alphabets);
+        minHeapify(alphabets, 0);
+        // buildMinHeap(alphabets);
     }
 };
 
@@ -103,37 +103,73 @@ Alphabet huffman(std::vector<Alphabet> &alphabets)
     MinHeap heap;
     heap.buildMinHeap(alphabets);
 
-    while(alphabets.size() != 1)
+    while (alphabets.size() != 1)
     {
         Alphabet z;
-        
-        Alphabet x = heap.extractMin(alphabets);
-        z.left = &x;
-        
-        Alphabet y = heap.extractMin(alphabets);
-        z.right = &y;
 
-        z.freq = x.freq + y.freq;
+        Alphabet *x = new Alphabet;
+        *x = heap.extractMin(alphabets);
+        z.left = x;
+
+        Alphabet *y = new Alphabet;
+        *y = heap.extractMin(alphabets);
+        z.right = y;
+
+        z.freq = x->freq + y->freq;
 
         heap.insert(alphabets, z);
     }
     return (heap.extractMin(alphabets));
 }
 
+void printCodes(int *code, int count)
+{
+    for (int i = 0; i < count; i++)
+    {
+        std::cout << code[i] << " ";
+    }
+    std::cout << std::endl;
+}
+
+void getCodes(Alphabet *root, int code[], int next)
+{
+    if (root->left)
+    {
+        code[next] = 0;
+        getCodes(root->left, code, next + 1);
+    }
+    if (root->right)
+    {
+        code[next] = 1;
+        getCodes(root->right, code, next + 1);
+    }
+    if (root->letter != '\0')
+    {
+        std::cout << root->letter << " : ";
+        printCodes(code, next);
+        delete root;
+    }
+}
+
 int main()
 {
     std::vector<Alphabet> alphabets;
-    alphabets.reserve(5);
-    Alphabet a = {'a', 3};
-    Alphabet b = {'b', 8};
-    Alphabet c = {'c', 4};
-    Alphabet d = {'d', 2};
-    Alphabet e = {'e', 10};
-    alphabets.emplace_back(a);
-    alphabets.emplace_back(b);
-    alphabets.emplace_back(c);
-    alphabets.emplace_back(d);
-    alphabets.emplace_back(e);
+    const int count = 6;
+    alphabets.reserve(count);
+    Alphabet A = {'A', 5};
+    Alphabet B = {'B', 25};
+    Alphabet C = {'C', 7};
+    Alphabet D = {'D', 15};
+    Alphabet E = {'E', 4};
+    Alphabet F = {'F', 12};
+    alphabets.emplace_back(A);
+    alphabets.emplace_back(B);
+    alphabets.emplace_back(C);
+    alphabets.emplace_back(D);
+    alphabets.emplace_back(E);
+    alphabets.emplace_back(F);
 
     Alphabet root = huffman(alphabets);
+    int code[count];
+    getCodes(&root, code, 0);
 }
