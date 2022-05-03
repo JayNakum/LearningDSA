@@ -1,5 +1,3 @@
-/** Time Complexity O(n log n)*/
-
 #include <iostream>
 #include <vector>
 #include <math.h>
@@ -13,10 +11,10 @@ struct Alphabet
     Alphabet *right = nullptr;
 };
 
-static int PARENT(int i)
-{
-    return floor(i / 2);
-}
+// static int PARENT(int i)
+// {
+//     return floor(i / 2);
+// }
 
 static int LEFT(int i)
 {
@@ -156,20 +154,16 @@ void getCodes(Alphabet *root, int code[], int next)
 int main()
 {
     std::vector<Alphabet> alphabets;
-    const int count = 6;
+    const int count = 4;
     alphabets.reserve(count);
     Alphabet A = {'A', 5};
-    Alphabet B = {'B', 25};
-    Alphabet C = {'C', 7};
-    Alphabet D = {'D', 15};
-    Alphabet E = {'E', 4};
-    Alphabet F = {'F', 12};
+    Alphabet B = {'B', 1};
+    Alphabet C = {'C', 6};
+    Alphabet D = {'D', 3};
     alphabets.emplace_back(A);
     alphabets.emplace_back(B);
     alphabets.emplace_back(C);
     alphabets.emplace_back(D);
-    alphabets.emplace_back(E);
-    alphabets.emplace_back(F);
 
     Alphabet root = huffman(alphabets);
     int code[count];

@@ -1,3 +1,5 @@
+/** Time Complexity O(n log n) */
+
 #include <iostream>
 
 struct Item
