@@ -52,15 +52,3 @@ for(i=a.lenght down to 2)
 exchange a[i] with a[i]
 a.heap_Size =a.heap_size -1
 max_heapify(a,i)
-
-
-
-
-
-
-
-
-
-
-
-	
